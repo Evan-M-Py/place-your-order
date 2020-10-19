@@ -6,7 +6,7 @@ import {
 import LandingPage from './components/LandingPage';
 import EditPage from './components/EditPage';
 import OrderPage from './components/OrderPage';
-import ViewPage from './components/viewPage';
+import ViewPage from './components/ViewPage';
 import './App.css';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
 
         </Route>
 
-        <Route path='/edit'>
+        <Route path='/editPage'>
 
           <EditPage/>
 
@@ -34,7 +34,7 @@ function App() {
 
         </Route>
 
-        <Route path='/viewTickets'>
+        <Route path='/viewPage'>
 
           <ViewPage/>
 

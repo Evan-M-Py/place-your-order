@@ -1,9 +1,17 @@
 import React from 'react';
-import './App.css';
+import {
+  Link
+} from "react-router-dom";
 
 function Nav() {
   return (
-    <div className="Nav">
+    <div className="Nav contentText">
+
+      <Link className='navOpt' to='placeOrder'><div >Place Orders</div></Link>
+
+      <Link className='navOpt' to='viewPage'><div >View Orders</div></Link>
+
+      <Link className='navOpt' to='editPage'><div >Edit Page</div></Link>
 
     </div>
   );

@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
-// const db = require('./models')
+const db = require('./models')
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -24,11 +24,14 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 //Routes
-// require("./routes/csaAPI")(app)
-// require("./routes/blogAPI")(app);
-// require("./routes/classAPI")(app);
-// require("./routes/eventAPI")(app);
-// require("./routes/classSignupsAPI")(app);
+
+require('./routes/dinnerAPI')(app);
+require("./routes/dessertAPI")(app);
+require('./routes/lunchAPI')(app);
+require('./routes/appetizerAPI')(app);
+require('./routes/sidesAPI')(app)
+require('./routes/miscAPI')(app);
+
 
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, "/client/build/index.html"));
@@ -38,8 +41,8 @@ app.get('*', function (req, res) {
 
 
 
-// db.sequelize.sync({ force: false }).then(() => {
-//     app.listen(PORT, function () {
-//         console.log(`Listening on port ${PORT}`)
-//     });
-// }); 
+db.sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, function () {
+        console.log(`Listening on port ${PORT}`)
+    });
+}); 
