@@ -35,7 +35,7 @@ module.exports = function(app) {
 
 
 
-    app.delete("/api/dessertdelete:id", function (req, res) {
+    app.delete("/api/dessertDelete:id", function (req, res) {
         console.log("DELETE ROUTE HIT");
         db.DessertItem.destroy({
             where: {

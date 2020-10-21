@@ -71,15 +71,82 @@ function EditPage() {
 
   }
 
+  const deleteMenuItem = (x) => {
+
+
+    switch (displayChoice) {
+      case "dinner":
+          console.log('got this far');
+          axios.delete('/api/dinnerDelete' + x).then((res) => {
+            let newDinner = dinnerItems.filter((items) => items.id !== x)
+            setDinnerItems(newDinner)
+            console.log(dinnerItems)
+            console.log('deleted')
+      
+          })
+        break;
+      case "lunch":
+          axios.delete('/api/lunchDelete' + x).then((res) => {
+            let newItemList = lunchItems.filter((items) => items.id !== x)
+            setLunchItems(newItemList)
+            console.log(lunchItems)
+            console.log('deleted')
+          })
+        break;
+      case "appetizer":
+          axios.delete('/api/appetizerDelete' + x).then((res) => {
+            let newItemList = appetizerItems.filter((items) => items.id !== x)
+            setAppetizerItems(newItemList)
+            console.log(appetizerItems)
+            console.log('deleted')
+          })
+        break;
+      case 'dessert':
+          axios.delete('/api/dessertDelete' + x).then((res) => {
+            let newItemList = dessertItems.filter((items) => items.id !== x)
+            setDessertItems(newItemList)
+            console.log(dessertItems)
+            console.log('deleted')
+          })
+        break;
+      case 'sides':
+          axios.delete('/api/sidesDelete' + x).then((res) => {
+            let newItemList = sidesItems.filter((items) => items.id !== x)
+            setSidesItems(newItemList)
+            console.log(sidesItems)
+            console.log('deleted')
+          })
+        break;
+      case 'misc':
+          axios.delete('/api/miscDelete').then((res) => {
+            let newItemList = miscItems.filter((items) => items.id !== x)
+            setLunchItems(newItemList)
+            console.log(miscItems)
+            console.log('deleted')
+          })
+        break;
+      default:
+        break;
+    }
+
+  }
+
   const displayItems = (x) => {
       switch (x) {
         case "dinner":
           return(
           dinnerItems.map((e) => {
               return(
-                  <div>
-                    <p>title: {e.name}</p>
-                    <p>description: {e.description}</p>
+                  <div className='itemContainer'>
+                    <button onClick={(x) => deleteMenuItem(e.id)}>delete</button>
+                    <label className='contentText' htmlFor='title'>Title:</label>
+                    <p name='title'>{e.name}</p>
+                    <label className='contentText' htmlFor='price'>Price:</label>
+                    <p name='price'>{e.price}</p>
+                    <label className='contentText' htmlFor='description'>Description:</label>
+                    <p name='description'>{e.description}</p>
+                    <label className='contentText' htmlFor='allergens'>Allergens:</label>
+                    <p name='allergens'>{e.allergens}</p>
                   </div>
                 )
               }))
@@ -87,57 +154,97 @@ function EditPage() {
         case "lunch":
           return (
             lunchItems.map((e) => {
-              return(
-                  <div>
-                    <p>{e.name}</p>
-                  </div>
-                )
-              })
-          )
+              console.log(e);
+                return(
+                    <div className='itemContainer'>
+                      <button onClick={(x) => deleteMenuItem(e.id)}>delete</button>
+                      <label className='contentText' htmlFor='title'>Title:</label>
+                      <p name='title'>{e.name}</p>
+                      <label className='contentText' htmlFor='price'>Price:</label>
+                      <p name='price'>{e.price}</p>
+                      <label className='contentText' htmlFor='description'>Description:</label>
+                      <p name='description'>{e.description}</p>
+                      <label className='contentText' htmlFor='allergens'>Allergens:</label>
+                      <p name='allergens'>{e.allergens}</p>
+                    </div>
+                  )
+                }))
           break;
         case "appetizer":
           return (
             appetizerItems.map((e) => {
-              return(
-                  <div>
-                    <p>{e.name}</p>
-                  </div>
-                )
-              })
-          )
+              console.log(e);
+                return(
+                    <div className='itemContainer'>
+                      <button onClick={(x) => deleteMenuItem(e.id, displayChoice)}>delete</button>
+                      <label className='contentText' htmlFor='title'>Title:</label>
+                      <p name='title'>{e.name}</p>
+                      <label className='contentText' htmlFor='price'>Price:</label>
+                      <p name='price'>{e.price}</p>
+                      <label className='contentText' htmlFor='description'>Description:</label>
+                      <p name='description'>{e.description}</p>
+                      <label className='contentText' htmlFor='allergens'>Allergens:</label>
+                      <p name='allergens'>{e.allergens}</p>
+                    </div>
+                  )
+                }))
           break;
         case 'dessert':
           return (
             dessertItems.map((e) => {
-              return(
-                  <div>
-                    <p>{e.name}</p>
-                  </div>
-                )
-              })
-          )
+              console.log(e);
+                return(
+                    <div className='itemContainer'>
+                      <button onClick={(x) => deleteMenuItem(e.id, displayChoice)}>delete</button>
+                      <label className='contentText' htmlFor='title'>Title:</label>
+                      <p name='title'>{e.name}</p>
+                      <label className='contentText' htmlFor='price'>Price:</label>
+                      <p name='price'>{e.price}</p>
+                      <label className='contentText' htmlFor='description'>Description:</label>
+                      <p name='description'>{e.description}</p>
+                      <label className='contentText' htmlFor='allergens'>Allergens:</label>
+                      <p name='allergens'>{e.allergens}</p>
+                    </div>
+                  )
+                }))
           break;
         case 'sides':
           return (
             sidesItems.map((e) => {
-              return(
-                  <div>
-                    <p>{e.name}</p>
-                  </div>
-                )
-              })
-          )
+              console.log(e);
+                return(
+                    <div className='itemContainer'>
+                      <button onClick={(x) => deleteMenuItem(e.id, displayChoice)}>delete</button>
+                      <label className='contentText' htmlFor='title'>Title:</label>
+                      <p name='title'>{e.name}</p>
+                      <label className='contentText' htmlFor='price'>Price:</label>
+                      <p name='price'>{e.price}</p>
+                      <label className='contentText' htmlFor='description'>Description:</label>
+                      <p name='description'>{e.description}</p>
+                      <label className='contentText' htmlFor='allergens'>Allergens:</label>
+                      <p name='allergens'>{e.allergens}</p>
+                    </div>
+                  )
+                }))
           break;
         case 'misc':
           return (
             miscItems.map((e) => {
-              return(
-                  <div>
-                    <p>{e.name}</p>
-                  </div>
-                )
-              })
-          )
+              console.log(e);
+                return(
+                    <div className='itemContainer'>
+                      <button onClick={(x) => deleteMenuItem(e.id, displayChoice)}>delete</button>
+                      <label className='contentText' htmlFor='title'>Title:</label>
+                      <p name='title'>{e.name}</p>
+                      <label className='contentText' htmlFor='price'>Price:</label>
+                      <p name='price'>{e.price}</p>
+                      <label className='contentText' htmlFor='description'>Description:</label>
+                      <p name='description'>{e.description}</p>
+                      <label className='contentText' htmlFor='allergens'>Allergens:</label>
+                      <p name='allergens'>{e.allergens}</p>
+                    </div>
+                  )
+                }))
           break;
         default:
           break;
@@ -149,21 +256,24 @@ function EditPage() {
       case "dinner":
 
         axios.post("/api/dinnerPost", newItem).then(res => {
-          console.log(res)
+          getMenuItems()
+          console.log(menuItems)
       });
 
         break;
       case "lunch":
 
         axios.post("/api/lunchPost", newItem).then(res => {
-          console.log(res)
+          getMenuItems()
+          console.log(menuItems)
       });
 
         break;
       case "appetizer":
 
         axios.post("/api/appetizerPost", newItem).then(res => {
-          console.log(res)
+          getMenuItems()
+          console.log(menuItems)
       });
       
         break;
@@ -171,13 +281,15 @@ function EditPage() {
       case 'dessert':
 
         axios.post("/api/dessertPost", newItem).then(res => {
-          console.log(res)
+          getMenuItems()
+          console.log(menuItems)
       });
       
         break;
       case 'sides':
 
         axios.post("/api/sidesPost", newItem).then(res => {
+          getMenuItems()
           console.log(res)
       });
       
@@ -185,6 +297,7 @@ function EditPage() {
       case 'misc':
 
         axios.post("/api/miscPost", newItem).then(res => {
+          getMenuItems()
           console.log(res)
       });
       
@@ -227,15 +340,13 @@ async function handlePostChange(e) {
 
       <div className='DinnerEdit'>
 
-        <form>
-
-          <div className='row'>
+        <form className='contentText'>
 
             <div className='inputWrapper'>
 
               <label htmlFor='itemName' className='txtInput'>Select the Menu:</label>
 
-              <select onChange={(e) => handlePostChange(e)} value={postType} name='postType'>
+              <select onClick={(e) => handlePostChange(e)} value={postType} name='postType'>
                 <option value='dinner'>dinner</option>
                 <option value='lunch'>lunch</option>
                 <option value='appetizer'>appetizer</option>
@@ -263,10 +374,6 @@ async function handlePostChange(e) {
             </div>
 
 
-          </div>
-
-          <div className='row'>
-
             <div className='inputWrapper'>
               
               <label htmlFor='itemDesc' className='txtInput'>Item Description:</label>
@@ -285,9 +392,6 @@ async function handlePostChange(e) {
             
             </div>
 
-          </div>
-
-          <div className='row'>
 
             <div className='inputWrapper'>
 
@@ -295,7 +399,6 @@ async function handlePostChange(e) {
 
             </div>
 
-          </div>
 
         </form>
 
@@ -315,28 +418,13 @@ async function handlePostChange(e) {
 
           </div>
 
-         {displayItems(displayChoice)}
+          <div className='itemDisplay'>
+
+            {displayItems(displayChoice)}
+        
+          </div>
+
         </div>
-
-      </div>
-
-      <div className='LunchEdit'>
-
-      </div>
-
-      <div className='AppetizerEdit'>
-
-      </div>
-
-      <div className='DessertEdit'>
-
-      </div>
-
-      <div className='SidesEdit'>
-
-      </div>
-
-      <div className='MiscEdit'>
 
       </div>
 

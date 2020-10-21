@@ -31,7 +31,7 @@ module.exports = function(app) {
 // // -------------------------------------------------------------------------DELETE-----
 
 
-    app.delete("/api/miscdelete:id", function (req, res) {
+    app.delete("/api/miscDelete:id", function (req, res) {
         console.log("DELETE ROUTE HIT");
         db.MiscItem.destroy({
             where: {

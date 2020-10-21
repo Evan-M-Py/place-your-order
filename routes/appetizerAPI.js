@@ -37,7 +37,7 @@ module.exports = function(app) {
 // // -------------------------------------------------------------------------DELETE-----
 
 
-    app.delete("/api/appetizersdelete:id", function (req, res) {
+    app.delete("/api/appetizersDelete:id", function (req, res) {
         console.log("DELETE ROUTE HIT");
         db.AppetizerItem.destroy({
             where: {

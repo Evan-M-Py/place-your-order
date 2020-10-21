@@ -34,7 +34,7 @@ module.exports = function(app) {
 // // -------------------------------------------------------------------------DELETE-----
 
 
-    app.delete("/api/sidesdelete:id", function (req, res) {
+    app.delete("/api/sidesDelete:id", function (req, res) {
         console.log("DELETE ROUTE HIT");
         db.SidesItem.destroy({
             where: {

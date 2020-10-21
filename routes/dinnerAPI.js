@@ -40,7 +40,7 @@ module.exports = function(app) {
 // // -------------------------------------------------------------------------DELETE-----
 
 
-    app.delete("/api/dinnerdelete:id", function (req, res) {
+    app.delete("/api/dinnerDelete:id", function (req, res) {
         console.log("DELETE ROUTE HIT");
         db.DinnerItem.destroy({
             where: {
