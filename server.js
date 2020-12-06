@@ -31,6 +31,7 @@ require('./routes/lunchAPI')(app);
 require('./routes/appetizerAPI')(app);
 require('./routes/sidesAPI')(app)
 require('./routes/miscAPI')(app);
+// require('./routes/wholeMenuAPI')(app);
 
 
 app.get('*', function (req, res) {

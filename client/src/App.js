@@ -1,48 +1,50 @@
 import React, { useState } from 'react';
-import {
-  Switch,
-  Route
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import { MenuProvider } from './MenuInfoContext';
 import LandingPage from './components/LandingPage';
 import EditPage from './components/EditPage';
 import OrderPage from './components/OrderPage';
-import ViewPage from './components/ViewPage';
+import PrepPage from './components/PrepPage';
 import './App.css';
 
 function App() {
   
   return (
-    <div className="App">
+    <MenuProvider>
+      
+      <div className="App">
 
-      <Switch>
+        <Switch>
 
-        <Route exact path='/'>
+          <Route exact path='/'>
 
-          <LandingPage/>
+            <LandingPage/>
 
-        </Route>
+          </Route>
 
-        <Route path='/editPage'>
+          <Route path='/editPage'>
 
-          <EditPage/>
+            <EditPage/>
 
-        </Route>
+          </Route>
 
-        <Route path='/placeOrder'>
+          <Route path='/placeOrder'>
 
-          <OrderPage/>
+            <OrderPage/>
 
-        </Route>
+          </Route>
 
-        <Route path='/viewPage'>
+          <Route path='/prepPage'>
 
-          <ViewPage/>
+            <PrepPage/>
 
-        </Route>
+          </Route>
 
-      </Switch>
+        </Switch>
 
-    </div>
+      </div>
+
+    </MenuProvider>
   );
 }
 

@@ -96,10 +96,60 @@ html, body {
 
 .OrderPage {
     width: 100%;
-    height: 100%;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
     background-color: #B2C0D3;
     display: flex;
     flex-direction: column;
+
+    .menuSectionHolder {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-top: 1em;
+        background-color: #e2e0d8;
+        border-radius: 8px 8px 8px 8px;
+
+        .menuSection {
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1em;
+            margin-top: 1em;
+            background-color: #f0eee5;
+            border-radius: 8px 8px 8px 8px;
+
+            h1 {
+                margin-left: auto;
+                margin-right: auto;
+                width: fit-content;
+                font-size: 3rem;
+            }
+
+            .menuOptHolder {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap
+                ;justify-content: center;
+
+            }
+            .menuOpt {
+                margin: 1em;
+                border: solid;
+                width: 40%;
+                height: auto;
+                background-color: #f5f3e5;
+
+                label, p {
+                    margin: 1em;
+                }
+            }
+
+        }
+    }
 }
 
 .ViewPage {
@@ -109,6 +159,72 @@ html, body {
     background-color: #B2C0D3;
     display: flex;
     flex-direction: column;
+
+    .title{
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+
+    .toDo {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1em;
+        margin-top: 1em;
+        background-color: #f0eee577;
+        border-radius: 8px 8px 8px 8px;
+
+        .prepInput {
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+
+            input {
+                margin-right: 1em;
+            }
+        }
+
+        .prepTable {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin: auto;
+
+            .tableCol {
+                display: flex;
+                flex-direction: column;
+                width: 33.33%;
+
+                .tableHeader {
+                    border: rgba(92, 92, 92, 0.637) solid 1px;
+                    border-radius: 1px;
+                    text-align: center;
+                    font-size: .5rem;
+                }
+
+                .cell {
+                    width: 100%;
+                    text-align: center;
+                    border-radius: 3px;
+                    background-color: rgba(223, 223, 223, 0.685);
+                }
+            }
+
+        }
+
+    }
+
+    .recipe {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1em;
+        margin-top: 1em;
+        background-color: #f0eee598;
+        border-radius: 8px 8px 8px 8px;
+
+    }
 }
 
 .EditPage {
@@ -119,7 +235,7 @@ html, body {
     display: flex;
     flex-direction: column;
 
-    .DinnerEdit {
+    .MenuEdit {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
@@ -127,6 +243,52 @@ html, body {
         margin-top: 1em;
         background-color: #f0eee5;
         border-radius: 8px 8px 8px 8px;
+
+        .displayNav {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            
+            button {
+                border: none;
+                border-radius: 10px;
+                width: 5em;
+                height: em;
+                font-size: 2rem;
+                margin: .5em;
+                background-color: #5bf3e1;
+                text-decoration: none;
+
+                &:active {
+                    background-color: #62c9bd;
+                }
+
+
+            }
+        }
+
+        .titleAndInstructions {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+
+            
+            h1, p {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+            }
+        }
 
         form {
             width: auto;
@@ -142,6 +304,7 @@ html, body {
 
             label {
                 margin-right: .5em;
+                font-size: 1.5rem;
             }
     
             textarea {
@@ -160,7 +323,7 @@ html, body {
             input {
                 width: auto;
                 height: 2em;
-                font-size: 1rem;
+                font-size: 1.5rem;
                 margin-left: 1em;
                 margin-right: 1em;
                 margin-top: .5em;
@@ -180,22 +343,12 @@ html, body {
         }
     }
 
-    .DinnerDisplay {
+    .MenuDisplay {
         display: flex;
         flex-direction: column;
         width: 100%;
         height: 100%;
         margin-bottom: 1em;
-
-        .displayNav {
-            width: 100%;
-            
-            button {
-                width: auto;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
 
         .itemDisplay {
             display: flex;
@@ -207,7 +360,7 @@ html, body {
             margin-left: auto;
 
             .itemContainer {
-                width: 20em;
+                width: 15em;
                 height: 22em;
                 background-color: #fffbec;
                 border-radius: 8px;
@@ -247,10 +400,5 @@ html, body {
             }
         }
     }
-
-
-
-
-
 
 }
